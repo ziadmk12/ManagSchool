@@ -99,18 +99,18 @@ class ClasseController extends Controller
         return response()->json($class);
     }
 
-    public function createPDF() {
-        // retreive all records from db
-        $Classes = Classe::all();
+    // public function createPDF() {
+    //     // retreive all records from db
+    //     $Classes = Classe::all();
   
-        // share data to view
+    //     // share data to view
         
-        $pdf = PDF::loadView('classe.classes',compact('Classes'));
+    //     $pdf = PDF::loadView('classe.classes',compact('Classes'));
   
-        // download PDF file with download method
-        set_time_limit(300);
-        return $pdf->download('classes.pdf');
-      }
+    //     // download PDF file with download method
+    //     set_time_limit(300);
+    //     return $pdf->download('classes.pdf');
+    //   }
 
     /**
      * Remove the specified resource from storage.
