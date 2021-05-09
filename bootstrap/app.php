@@ -41,9 +41,6 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
-$app->register(\Barryvdh\DomPDF\ServiceProvider::class);
-class_alias(\Barryvdh\DomPDF\Facade::class, 'PDF');
-
 /*
 |--------------------------------------------------------------------------
 | Return The Application
