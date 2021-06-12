@@ -31,6 +31,8 @@ Route::delete('/teachers/{id}', 'TeachersController@deleteTeacher')->name('delet
 /////////////
 
 Route::get('/matter', 'MattersController@index')->name('matter');
+Route::get('/matter-ipi', 'MattersController@index2')->name('matter2');
+
 Route::post('/matter-add', 'MattersController@store')->name('addMatter');
 Route::get('/matter/{id}', 'MattersController@getMatterByID')->name('getMatter');
 Route::post('/matter','MattersController@update')->name('updateMatter');
@@ -52,7 +54,7 @@ Route::post('/student','StudentsController@update')->name('updateStudent');
 Route::delete('/student/{id}', 'StudentsController@destroy')->name('deleteStudent');
 
 
-Route::get('/class-pdf', 'ClasseController@createPDF')->name('class-pdf');
+//Route::get('/class-pdf', 'ClasseController@createPDF')->name('class-pdf');
 
 
 

@@ -32,7 +32,7 @@
               <a href="" data-toggle="modal" data-target="#exampleModal">
                 <i class="ni ni-fat-add text-success"></i>
               </a>
-              <a href="{{route('class-pdf')}}">
+              <a href="#">
                 <i class="ni ni-cloud-download-95 text-success"></i>
               </a>
 

@@ -20,8 +20,15 @@ class MattersController extends Controller
     public function index()
     {
         //
-        return view('matter.matter',['Matters' => Matter::all()
+        return view('matter.matter',['Matters' => Matter::all(),
+        
         ]);
+    }
+
+    public function index2()
+    {
+        //
+        return Matter::all();
     }
 
     /**
