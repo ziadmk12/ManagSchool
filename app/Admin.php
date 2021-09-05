@@ -3,17 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class Admin extends Authenticatable implements JWTSubject
 
-
-class Teacher extends Model
-{
+{ 
     
+    protected $table='admins';
 
-    //
-     protected $table='teachers';
-     protected $fillbale=['name','matter','age','phone','adress','email','password'];
+    protected $fillable = [
+        'email', 'password',
+    ];
 
+      /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
     public function getJWTIdentifier()
     {
         return $this->getKey();
@@ -28,4 +35,5 @@ class Teacher extends Model
     {
         return [];
     }
+
 }

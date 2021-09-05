@@ -22,7 +22,35 @@ use Illuminate\Support\Facades\Route;
 //Routes
 
 
-Route::group(['middleware' => 'api' , 'namespace'=>'Api'],function(){
-    Route::get('/classes-get', 'ClassesController@index');
+Route::group([ 'namespace'=>'Api'],function(){
+   
+    Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
+        Route::post('/login', 'AuthController@login');    
+    });
+    Route::group(['prefix'=>'admin','middleware'=>'assignGuard:admin-api','namespace'=>'Admin'],function(){
+        Route::post('/logout', 'AuthController@logout');
+        Route::post('/add-teacher', 'TeachersController@addTeacher');
+        Route::post('/show-teacher', 'TeachersController@showTeacher');
+
+    });
+
+
+    Route::group(['prefix'=>'user','namespace'=>'User'],function(){
+        Route::post('/login', 'UserController@Userlogin');     
+    });
+
+    
+    Route::group(['prefix'=>'user','middleware'=>'assignGuard:user-api'],function(){
+        Route::post('/profile',function(){
+            return 'only for users';
+        });
+       
+    });
+
+    Route::group(['prefix'=>'admin','middleware'=>'assignGuard:admin-api','namespace'=>'Admin'],function(){
+        Route::post('/test',function(){
+            return 'only for test';
+        });
+    });
 
 });
